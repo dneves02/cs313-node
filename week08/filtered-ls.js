@@ -37,9 +37,11 @@ fs.readdir (filePath, function (err, files) {
       
    })
 }
- */
-/* function logResult () {
-   console.log(fileList);
-} */
 
-//getFiles();
+   function logResult () {
+   console.log(fileList);
+} 
+
+getFiles();
+
+*/
