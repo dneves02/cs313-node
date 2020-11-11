@@ -1,11 +1,25 @@
-const fs = require('fs');
-const filePath = process.argv[2];
-const fileType = process.argv[3];
+const fs = require('fs')
+const path = require('path')
 
-var file =  undefined;
-var fileList = [];
+const filePath = process.argv[2]
+//const fileType = process.argv[3];
+const fileType = "." + process.argv[3]
 
-function getFiles () {
+//var file =  undefined
+//var fileList = []
+
+fs.readdir (filePath, function (err, files) {
+   if (err) {
+      console.log(err)
+   }
+   files.forEach(function(file) {
+      if (path.extname(file) === fileType) {
+         console.log(file)
+      }
+   })
+})
+
+/* function getFiles () {
    fs.readdir (filePath, function doneReading(err, fileContents) {
       if (err) {
          console.log(err);
@@ -23,9 +37,9 @@ function getFiles () {
       
    })
 }
-
+ */
 /* function logResult () {
    console.log(fileList);
 } */
 
-getFiles();
+//getFiles();
