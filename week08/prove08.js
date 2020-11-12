@@ -5,6 +5,7 @@ function onRequest(req, res) {
    console.log("received a request for: " + req.url)
 
    lines = req.url.toString().split('/')
+   message = toString({"name": "Davi", "class":"cs313"})
 
    if(req.url == "/home") {
       res.writeHead(200, {"Content-Type": "text/html"})
@@ -12,7 +13,7 @@ function onRequest(req, res) {
       res.end()
    } else if (req.url == "/getData") {
       res.writeHead(200, {"Content-Type": "application/json"})
-      res.write({"name": "Davi", "class":"cs313"})
+      res.write(message)
       res.end()
    } else {
       res.writeHead(404, {"Content-Type": "text/html"})
