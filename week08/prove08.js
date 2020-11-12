@@ -5,7 +5,7 @@ function onRequest(req, res) {
    console.log("received a request for: " + req.url)
 
    lines = req.url.toString().split('/')
-   message = toString({"name": "Davi", "class":"cs313"})
+   message = JSON.stringify({"name": "Davi", "class":"cs313"})
 
    if(req.url == "/home") {
       res.writeHead(200, {"Content-Type": "text/html"})
