@@ -1,4 +1,5 @@
 const express = require('express')
+var path = require('path');
 const app = express()
 const port = 3000
 
@@ -6,6 +7,7 @@ app.use(express.static('public'));
 
 app.set('views', 'views');
 app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
   res.send('Hello Davi!')
