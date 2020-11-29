@@ -7,11 +7,6 @@ function onRequest(req, res) {
    
    lines = req.url.toString().split('/');
   
-   // numbers = lines[2].toString().split('+')
-   // var num1 = parseInt(numbers[0])
-   // var num2 = parseInt(numbers[1])
-   // ar sum = num1 + num2
-
    message = JSON.stringify({"name": "Davi", "class":"cs313"});
 
    if(lines[1] == "home") {
@@ -24,17 +19,25 @@ function onRequest(req, res) {
       res.end();
    } 
     else if (lines[1] == "add") {
-      numbers = lines[2];
-      total = 0;
+      // Solution 1:
+      // numbers = lines[2];
+      // total = 0;
 
-      for (var i = 0 ; i < numbers.length; i++) {
-         console.log("number:", numbers[i]);
-         num = parseInt(numbers[i]);
-         total += num;
-      }
-      console.log("total: ", total);
+      // for (var i = 0 ; i < numbers.length; i++) {
+      //    console.log("number:", numbers[i]);
+      //    num = parseInt(numbers[i]);
+      //    total += num;
+      // }
+      // console.log("total: ", total);
+      
+      // Solution 2:
+      numbers = lines[2].toString().split('+')
+      var num1 = parseInt(numbers[0])
+      var num2 = parseInt(numbers[1])
+      var sum = num1 + num2 
+      console.log("sum: ", sum);
       res.writeHead(200, {"Content-Type": "text/html"});
-      res.write("Your total is: "+ total);
+      res.write("Your total is: "+ sum);
       res.end();
    } else if (lines[0] == "/assignments") {
       res.writeHead(301, ('https://stormy-mesa-22236.herokuapp.com/'));
